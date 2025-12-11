@@ -5,7 +5,7 @@ breaking_versions:
   - 2.0.0-beta
 slug: bluetti2mqtt-beta
 description: MQTT bridge between Bluetti and Home Assistant
-url: https://github.com/SSMCD/bluetti2mqtt
+url: https://github.com/LzbnAndr313/bluetti2mqtt
 arch:
   - aarch64
   - amd64
