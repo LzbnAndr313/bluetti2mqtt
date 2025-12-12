@@ -23,9 +23,9 @@ options:
   mqtt_host: ""
   mode: mqtt
   ha_config: normal
-  bt_mac: ""
+  bt_mac: "A8:46:74:0C:AB:AE"
   poll_sec: 30
-  scan: true
+  scan: false
   debug: false
 schema:
   mqtt_username: str?
