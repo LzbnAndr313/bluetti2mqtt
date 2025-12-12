@@ -5,6 +5,7 @@
 # ==============================================================================
 
 bashio::log.info 'Reading configuration settings...'
+bashio::log.info "Using bluetti_mqtt version: ${BLUETTI_MQTT_VERSION}"
 
 MODE=$(bashio::config 'mode')
 HA_CONFIG=$(bashio::config 'ha_config')
@@ -39,6 +40,7 @@ fi
 
 if [ $(bashio::config 'debug') == true ]; then
 	export DEBUG=true
+	export BLEAK_LOGGING=1
 	bashio::log.info 'Debug mode is enabled.'
 fi
 
