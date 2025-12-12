@@ -16,13 +16,11 @@ https://github.com/LzbnAndr313/bluetti2mqtt
 
 Refresh the page (hard refresh may be required), scroll down to Bluetti2MQTT and install the add-on.
 
-## Add-ons
+## Add-on
 
-This repository contains the following add-ons:
+This repository contains the following add-on:
 
 ### [Bluetti2MQTT](./bluetti2mqtt)
-
-### [Bluetti2MQTT (Beta)](./bluetti2mqtt-beta)
 
 ![Supports aarch64 Architecture][aarch64-shield]
 ![Supports amd64 Architecture][amd64-shield]
