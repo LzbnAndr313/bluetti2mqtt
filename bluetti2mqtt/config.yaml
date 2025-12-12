@@ -24,15 +24,15 @@ options:
   mqtt_port: ""
   mode: mqtt
   ha_config: normal
-  bt_mac: FE:97:60:CD:21:D4
+  bt_mac: ""
   poll_sec: 30
-  scan: false
+  scan: true
   debug: false
 schema:
   mqtt_username: str?
   mqtt_password: password?
   mqtt_host: str?
-  mqtt_port: str?
+  mqtt_port: port?
   mode: list(mqtt|discovery|logger)
   ha_config: list(normal|none|advanced)
   bt_mac: match(^([0-9A-Fa-f]{2}[:]){5}[0-9A-Fa-f]{2}( ([0-9A-Fa-f]{2}[:]){5}[0-9A-Fa-f]{2})*$)

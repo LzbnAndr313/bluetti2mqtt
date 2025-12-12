@@ -5,3 +5,10 @@ build_from:
   armhf: ghcr.io/hassio-addons/base-python/armhf:17.0.0
   armv7: ghcr.io/hassio-addons/base-python/armv7:17.0.0
   i386: ghcr.io/hassio-addons/base-python/i386:17.0.0
+args:
+  BLUETTI_MQTT_VERSION: "269749da5273ee894535fdca86add8bf595bf6b7"
+labels:
+  org.opencontainers.image.title: "Bluetti to MQTT"
+  org.opencontainers.image.description: "MQTT bridge between Bluetti and Home Assistant"
+  org.opencontainers.image.source: "https://github.com/LzbnAndr313/bluetti2mqtt"
+  org.opencontainers.image.licenses: "MIT"

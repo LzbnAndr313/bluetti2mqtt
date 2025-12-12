@@ -28,7 +28,7 @@ fi
 if bashio::config.has_value 'mqtt_username'; then
 	MQTT_USERNAME=$(bashio::config 'mqtt_username')
 else
-	MQTT_USERNAME=$(bashio::services mqtt "username")
+	MQTT_USERNAME=$(bashio::services "mqtt" "username")
 fi
 
 if bashio::config.has_value 'mqtt_password'; then
@@ -43,7 +43,7 @@ if [ $(bashio::config 'debug') == true ]; then
 fi
 
 args=()
-if [ ${SCAN} == true ]; then
+if [ "${SCAN}" == "true" ]; then
 	args+=(--scan)
 fi
 
@@ -52,14 +52,17 @@ case $MODE in
 	mqtt)
 		bashio::log.info 'Starting bluetti-mqtt...'
 		args+=( \
-			--broker ${MQTT_HOST} \
-			--port ${MQTT_PORT} \
-			--username ${MQTT_USERNAME} \
-			--password ${MQTT_PASSWORD} \
-			--interval ${POLL_SEC} \
-			--ha-config ${HA_CONFIG} \
+			--broker "${MQTT_HOST}" \
+			--port "${MQTT_PORT}" \
+			--username "${MQTT_USERNAME}" \
+			--password "${MQTT_PASSWORD}" \
+			--interval "${POLL_SEC}" \
+			--ha-config "${HA_CONFIG}" \
 			${BT_MAC})
-		bluetti-mqtt ${args[@]}
+		if ! bluetti-mqtt "${args[@]}"; then
+			bashio::log.error "Failed to start bluetti-mqtt"
+			exit 1
+		fi
 		;;
 
 	discovery)
@@ -67,9 +70,12 @@ case $MODE in
 		bashio::log.info 'Messages are NOT published to the MQTT broker in discovery mode.'
 		mkdir -p /share/bluetti2mqtt/
 		args+=( \
-			--log /share/bluetti2mqtt/discovery_$(date "+%m%d%y%H%M%S").log \
+			--log "/share/bluetti2mqtt/discovery_$(date "+%m%d%y%H%M%S").log" \
 			${BT_MAC})
-		bluetti-discovery ${args[@]}
+		if ! bluetti-discovery "${args[@]}"; then
+			bashio::log.error "Failed to start bluetti-discovery"
+			exit 1
+		fi
 		;;
 
 	logger)
@@ -77,9 +83,12 @@ case $MODE in
 		bashio::log.info 'Messages are NOT published to the MQTT broker in logger mode.'
 		mkdir -p /share/bluetti2mqtt/
 		args+=( \
-			--log /share/bluetti2mqtt/logger_$(date "+%m%d%y%H%M%S").log \
+			--log "/share/bluetti2mqtt/logger_$(date "+%m%d%y%H%M%S").log" \
 			${BT_MAC})
-		bluetti-logger ${args[@]}
+		if ! bluetti-logger "${args[@]}"; then
+			bashio::log.error "Failed to start bluetti-logger"
+			exit 1
+		fi
 		;;
 
 	*)
