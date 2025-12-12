@@ -1,6 +1,6 @@
 ---
 name: Bluetti to MQTT
-version: 3.0.2
+version: 3.0.3
 slug: bluetti2mqtt
 description: MQTT bridge between Bluetti and Home Assistant
 url: https://github.com/LzbnAndr313/bluetti2mqtt
@@ -21,7 +21,7 @@ options:
   mqtt_username: ""
   mqtt_password: ""
   mqtt_host: ""
-  mqtt_port: ""
+  mqtt_port: null
   mode: mqtt
   ha_config: normal
   bt_mac: ""
