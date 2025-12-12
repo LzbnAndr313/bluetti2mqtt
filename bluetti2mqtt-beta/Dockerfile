@@ -8,7 +8,7 @@ COPY rootfs /
 RUN apk add --update --no-cache \
 	bluez \
 	git \
-	&& pip install git+https://github.com/LzbnAndr313/bluetti_mqtt.git@e0f7db93c868ee4a89f9417abdfe7601eb2b3b02 \
+	&& pip install git+https://github.com/LzbnAndr313/bluetti_mqtt.git@79102323e42fda5207362c2f704ad2c2b5c6a7f5 \
 	&& apk del git \
 	&& rm -rf /var/cache/apk/* /lib/apk/db/* \
 	&& chmod a+x /run.sh
