@@ -15,7 +15,8 @@ ENV BLUETTI_MQTT_VERSION=${BLUETTI_MQTT_VERSION}
 RUN apk add --update --no-cache \
 	bluez \
 	git \
-	&& pip install git+https://github.com/LzbnAndr313/bluetti_mqtt.git@${BLUETTI_MQTT_VERSION} \
+	# && pip install git+https://github.com/LzbnAndr313/bluetti_mqtt.git@${BLUETTI_MQTT_VERSION} \
+	&& pip install git+https://github.com/LzbnAndr313/bluetti_mqtt.git \
 	&& apk del git \
 	&& rm -rf /var/cache/apk/* /lib/apk/db/* \
 	&& chmod a+x /run.sh
